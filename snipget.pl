@@ -47,14 +47,14 @@ my %stash; # Hash for temporary storage of snippets
 # Keys represent the regex by which pastebin URLs are recognized, meanwhile
 # values are URLs for locations from where to fetch the snippets as raw text
 my %services = (
-  qr|http://pastebin.org/(\d+)|   => "http://pastebin.org/pastebin.php?dl=%id",
-  qr|http://pastie.org/(\d+)|     => "http://pastie.org/%id.txt",
-  qr|http://pastebin.ca/(\d+)|    => "http://pastebin.ca/raw/%id",,
-  qr|http://pastebin.im/(\d+)|    => "http://pastebin.im/index.php?dl=%id",
-  qr|http://codepad.org/(\w+)|    => "http://codepad.org/%id/raw",
-  qr|http://slexy.org/view/(\w+)| => "http://slexy.org/raw/%id",
-  qr|http://dumpz.org/(\d+)/|     => "http://dumpz.org/%id/text/",
-  qr|http://snipt.org/(\w+)|      => "http://snipt.org/raw/download/%id"
+  qr|http://(?:www\.)?pastebin.org/(\d+)|   => "http://pastebin.org/pastebin.php?dl=%id",
+  qr|http://(?:www\.)?pastie.org/(\d+)|     => "http://pastie.org/%id.txt",
+  qr|http://(?:www\.)?pastebin.ca/(\d+)|    => "http://pastebin.ca/raw/%id",,
+  qr|http://(?:www\.)?pastebin.im/(\d+)|    => "http://pastebin.im/index.php?dl=%id",
+  qr|http://(?:www\.)?codepad.org/(\w+)|    => "http://codepad.org/%id/raw",
+  qr|http://(?:www\.)?slexy.org/view/(\w+)| => "http://slexy.org/raw/%id",
+  qr|http://(?:www\.)?dumpz.org/(\d+)/|     => "http://dumpz.org/%id/text/",
+  qr|http://(?:www\.)?snipt.org/(\w+)|      => "http://snipt.org/raw/download/%id"
 );
 
 sub sanitize_snippet {
