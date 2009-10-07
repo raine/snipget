@@ -1,0 +1,9 @@
+h2. snipget.pl
+
+Script for viewing pastebin snippets from Irssi.
+See snipget.pl for further help.
+
+h3. Installation
+
+* Download and place "snipget.pl":http://github.com/raneksi/snipget/raw/master/snipget.pl in your @~/.irssi/scripts/autorun@ directory
+* Run @/script load autorun/snipget@
