@@ -3,6 +3,22 @@ h2. snipget.pl
 Script for viewing pastebin snippets from Irssi.
 See snipget.pl for further help.
 
+h3. Features
+
+* Open pastebin snippets either in a new window, or append the contents into the current one
+* Automatically open snippets of which line counts are below a certain threshold
+* Supports the usual pastebin services and adding new ones is fairly trivial
+
+<pre>
+  /set snipget_auto ON/OFF
+  /set snipget_auto_threshold <line count>
+</pre>
+
+h3. Requirements
+
+* Irssi compiled with Perl support
+* LWP - The World-Wide Web library for Perl (shouldn't have to be installed in most cases)
+
 h3. Installation
 
 * Download and place "snipget.pl":http://github.com/raneksi/snipget/raw/master/snipget.pl in your @~/.irssi/scripts/autorun@ directory
