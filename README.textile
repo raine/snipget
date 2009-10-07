@@ -7,3 +7,7 @@ h3. Installation
 
 * Download and place "snipget.pl":http://github.com/raneksi/snipget/raw/master/snipget.pl in your @~/.irssi/scripts/autorun@ directory
 * Run @/script load autorun/snipget@
+
+h3. Screenshots
+
+!http://imgur.com/veVHz.png!
