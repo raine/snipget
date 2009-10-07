@@ -33,7 +33,7 @@ use LWP::Simple;
 use vars qw($VERSION %IRSSI);
 
 $VERSION = "0.0.1";
-%IRSSI = ( # TODO update
+%IRSSI = (
   authors     => 'Raine Virta',
   contact     => 'raine.virta@gmail.com',
   description => 'Fetches snippets from various pastebin services',
