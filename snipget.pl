@@ -23,7 +23,6 @@
 #   without visiting the snippet first, value in services in that case 
 #   could be a regexp for finding the raw url in the body, then if
 #   what is found is a URL, do another request for that
-# * write some help about usage
 #
 # Copyright 2009  Raine Virta <raine.virta@gmail.com>
 
