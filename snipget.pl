@@ -53,7 +53,8 @@ my %services = (
   qr|http://pastebin.im/(\d+)|    => "http://pastebin.im/index.php?dl=%id",
   qr|http://codepad.org/(\w+)|    => "http://codepad.org/%id/raw",
   qr|http://slexy.org/view/(\w+)| => "http://slexy.org/raw/%id",
-  qr|http://dumpz.org/(\d+)/|     => "http://dumpz.org/%id/text/"
+  qr|http://dumpz.org/(\d+)/|     => "http://dumpz.org/%id/text/",
+  qr|http://snipt.org/(\w+)|      => "http://snipt.org/raw/download/%id"
 );
 
 sub sanitize_snippet {
