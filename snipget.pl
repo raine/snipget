@@ -56,7 +56,9 @@ my %services = (
   qr|http://(?:www\.)?slexy\.org/view/(\w+)| => "http://slexy.org/raw/%id",
   qr|http://(?:www\.)?dumpz\.org/(\d+)/|     => "http://dumpz.org/%id/text/",
   qr|http://(?:www\.)?snipt\.org/(\w+)|      => "http://snipt.org/raw/download/%id",
-  qr|http://(?:www\.)?dpaste\.org/(\w+)/|    => "http://dpaste.org/%id/raw/"
+  qr|http://(?:www\.)?dpaste\.org/(\w+)/|    => "http://dpaste.org/%id/raw/",
+  qr|http://(?:www\.)?pastebin\.se/(\d+)|    => "http://pastebin.se/pastebin.php?dl=%id"
+
 );
 
 sub sanitize_snippet {
