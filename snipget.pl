@@ -58,7 +58,6 @@ my %services = (
   qr|http://(?:www\.)?snipt\.org/(\w+)|      => "http://snipt.org/raw/download/%id",
   qr|http://(?:www\.)?dpaste\.org/(\w+)/|    => "http://dpaste.org/%id/raw/",
   qr|http://(?:www\.)?pastebin\.se/(\d+)|    => "http://pastebin.se/pastebin.php?dl=%id"
-
 );
 
 sub sanitize_snippet {
@@ -107,14 +106,13 @@ sub public_message {
             my $lines = count_lines($snippet);
             my $auto = Irssi::settings_get_bool('snipget_auto') && $lines <= Irssi::settings_get_int('snipget_auto_threshold');
 
-			my $witem = Irssi::active_win();
+            my $witem = Irssi::active_win();
 
             if ($auto) {
-				$witem->printformat(MSGLEVEL_CLIENTCRAP, 'snipget_info', 'Autofetching snippet');
+                $witem->printformat(MSGLEVEL_CLIENTCRAP, 'snipget_info', 'Autofetching snippet');
             } else {
-				$witem->printformat(MSGLEVEL_CLIENTCRAP, 'snipget_detected', $&, $lines, ($lines == 1 ? "line" : "lines"));
-				$witem->printformat(MSGLEVEL_CLIENTCRAP, 'snipget_usage');
-
+                $witem->printformat(MSGLEVEL_CLIENTCRAP, 'snipget_detected', $&, $lines, ($lines == 1 ? "line" : "lines"));
+                $witem->printformat(MSGLEVEL_CLIENTCRAP, 'snipget_usage');
                 $stash{lc($server->{tag})}{lc($target)} = $snippet;
             }
 
@@ -156,7 +154,7 @@ Irssi::settings_add_bool('misc', 'snipget_auto', 1);
 Irssi::settings_add_int('misc', 'snipget_auto_threshold', 10);
 
 Irssi::theme_register([
-		'snipget_detected', '%B>>%n Snippet detected: %U$0%n [%9$1 $2]%n',
-		'snipget_info', '%B>>%n $0-',
-		'snipget_usage', '%B>>%n %c/snip%n to open in a new window, %c/snip here%n to append to the current window'
+    'snipget_detected', '%B>>%n Snippet detected: %U$0%n [%9$1 $2%n]',
+    'snipget_info', '%B>>%n $0-',
+    'snipget_usage', '%B>>%n %c/snip%n to open in a new window, %c/snip here%n to append to the current window'
 ]);
