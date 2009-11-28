@@ -98,6 +98,8 @@ sub public_message {
     # Required to make the printed messages appear after the received message
     Irssi::signal_continue(@_);
 
+    my $witem = $server->channel_find($target);
+
     for my $url_regex (keys %services) {
         if ($text =~ $url_regex) {
             my $snippet = get_paste($1, $services{$url_regex});
@@ -107,18 +109,15 @@ sub public_message {
             my $lines = count_lines($snippet);
             my $auto = Irssi::settings_get_bool('snipget_auto') && $lines <= Irssi::settings_get_int('snipget_auto_threshold');
 
-            my $str;
-
             if ($auto) {
-                $str = "%B>>%n Autofetching snippet";
+                $witem->printformat(MSGLEVEL_CLIENTCRAP, 'snipget_info', 'Autofetching snippet');
             } else {
-                $str  = "%B>>%n Snippet detected: %U$&%n [%9" . $lines . " " . ($lines == 1 ? "line" : "lines") . "%n]";
-                $str .= "\n%B>>%n %c/snip%n to open in a new window, %c/snip here%n to append to the current window";
+                $witem->printformat(MSGLEVEL_CLIENTCRAP, 'snipget_detected', $&, $lines, ($lines == 1 ? "line" : "lines"));
+                $witem->printformat(MSGLEVEL_CLIENTCRAP, 'snipget_usage');
 
                 $stash{lc($server->{tag})}{lc($target)} = $snippet;
             }
 
-            $server->print($target, $str, MSGLEVEL_CLIENTCRAP);
 
             if ($auto) {
                 $server->print($target, "\n" . sanitize_snippet($snippet) . "\n", MSGLEVEL_NEVER);
@@ -156,3 +155,9 @@ Irssi::signal_add_last("message public", "public_message");
 
 Irssi::settings_add_bool('misc', 'snipget_auto', 1);
 Irssi::settings_add_int('misc', 'snipget_auto_threshold', 10);
+
+Irssi::theme_register([
+        'snipget_detected', '%B>>%n Snippet detected: %U$0%n [%9$1 $2]%n',
+        'snipget_info', '%B>>%n $0-',
+        'snipget_usage', '%B>>%n %c/snip%n to open in a new window, %c/snip here%n to append to the current window'
+]);
