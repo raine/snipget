@@ -48,7 +48,7 @@ my %stash; # Hash for temporary storage of snippets
 # values are URLs for locations from where to fetch the snippets as raw text
 my %services = (
   qr|http://(?:www\.)?pastebin\.com/(\w+)|   => "http://pastebin.com/pastebin.php?dl=%id",
-  qr|http://(?:www\.)?pastebin\.org/(\d+)|   => "http:http://pastebin.com/m3295290b//pastebin.org/pastebin.php?dl=%id",
+  qr|http://(?:www\.)?pastebin\.org/(\d+)|   => "http://pastebin.org/pastebin.php?dl=%id",
   qr|http://(?:www\.)?pastie\.org/(\d+)|     => "http://pastie.org/%id.txt",
   qr|http://(?:www\.)?pastebin\.ca/(\d+)|    => "http://pastebin.ca/raw/%id",,
   qr|http://(?:www\.)?pastebin.\im/(\d+)|    => "http://pastebin.im/index.php?dl=%id",
