@@ -26,5 +26,5 @@ h3. Installation
 
 h3. Screenshots
 
-!http://imgur.com/veVHz.png!
-!http://imgur.com/1IOLK.png!
+!http://i.imgur.com/veVHz.png!
+!http://i.imgur.com/1IOLK.png!
